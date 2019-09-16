@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from core.models import Anotation
+from core.models import anotation
 
-class AnotationSerializer(ModelSerializer):
+class anotationSerializer(ModelSerializer):
     class Meta:
-        model = Anotation
+        model = anotation
         fields=('id', 'name', 'description', 'date')

@@ -1,8 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
-from core.models import Anotation
-from .serializers import AnotationSerializer
+from core.models import anotation
+from .serializers import anotationSerializer
 
 
 class AnotationViewSet(ModelViewSet):
-    queryset = Anotation.objects.all()
-    serializer_class = AnotationSerializer
+    queryset = anotation.objects.all()
+    serializer_class = anotationSerializer

@@ -20,9 +20,9 @@ from rest_framework import routers
 from core.api.viewsets import AnotationViewSet
 
 router = routers.DefaultRouter()
-router.register(r'Anotation', AnotationViewSet)
+router.register(r'anotation', AnotationViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]

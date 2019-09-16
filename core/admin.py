@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Anotation
+from .models import anotation
 
-admin.site.register(Anotation)
+admin.site.register(anotation)
