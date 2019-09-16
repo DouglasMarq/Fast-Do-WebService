@@ -1,0 +1,1 @@
+web gunicorn FastDoWebService.wsgi --log-file -
