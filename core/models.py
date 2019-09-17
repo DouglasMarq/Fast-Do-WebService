@@ -9,3 +9,7 @@ class anotation(models.Model):
 
     def __str__(self):
         return self.name
+
+class token(models.Model):
+    def __str__(self):
+        return Response(self)

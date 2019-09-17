@@ -18,11 +18,14 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
 from core.api.viewsets import AnotationViewSet
+from rest_framework.authtoken.views import obtain_auth_token
+from core.views import login
 
 router = routers.DefaultRouter()
 router.register(r'anotation', AnotationViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
+    path('api/v1/api-auth-token', login),
     path('admin/', admin.site.urls),
 ]
