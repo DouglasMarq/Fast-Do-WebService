@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import anotation, register
+from .models import anotation, User
 
 admin.site.register(anotation)
-admin.site.register(register)
+admin.site.register(User)

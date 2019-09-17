@@ -7,11 +7,12 @@ class anotation(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
     date = models.DateField(_("Date"), default=datetime.date.today)
+    isfavorite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
 
-class register(models.Model):
+class User(models.Model):
     username = models.CharField(max_length=30)
     password = forms.CharField(widget=forms.PasswordInput)
     email = models.EmailField()

@@ -17,17 +17,16 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
-from core.api.viewsets import AnotationViewSet, RegisterViewSet
+from core.api.viewsets import AnotationViewSet
 from rest_framework.authtoken.views import obtain_auth_token
-from core.views import login, register
+from core.views import login, UserCreate
 
 router = routers.DefaultRouter()
 router.register(r'anotation', AnotationViewSet)
-#router.register(r'register', RegisterViewSet)
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('api/v1/api-auth-token', login),
-    path('api/v1/register', register),
+    path(r'api/v1/register', UserCreate),
     path('admin/', admin.site.urls),
 ]
