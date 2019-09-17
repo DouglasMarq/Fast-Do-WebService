@@ -8,6 +8,7 @@ from rest_framework.status import (
     HTTP_404_NOT_FOUND,
     HTTP_200_OK
 )
+from rest_framework import serializers
 from rest_framework.response import Response
 
 @csrf_exempt
@@ -27,6 +28,17 @@ def login(request):
     return Response({'token': 'Token ' + token.key},
                     status=HTTP_200_OK)
 
+@csrf_exempt
+@api_view(["POST"])
+@permission_classes((AllowAny,))
 def register(request):
-    username = request.data.get("username")
-    password = request.data.get("password")
+    serialized = UserSerializer(data=request.DATA)
+    if serialized.is_valid():
+        User.objects.create_user(
+            serialized.init_data['email'],
+            serialized.init_data['username'],
+            serialized.init_data['password']
+        )
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)

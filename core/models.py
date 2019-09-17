@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.utils.translation import gettext as _
+from django import forms
 
 class anotation(models.Model):
     name = models.CharField(max_length=50)
@@ -10,6 +11,11 @@ class anotation(models.Model):
     def __str__(self):
         return self.name
 
-class token(models.Model):
+class register(models.Model):
+    username = models.CharField(max_length=30)
+    password = forms.CharField(widget=forms.PasswordInput)
+    email = models.EmailField()
+    date = models.DateField(_("Date"), default=datetime.date.today)
+
     def __str__(self):
-        return Response(self)
+        return self.username
