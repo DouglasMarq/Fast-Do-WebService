@@ -24,5 +24,9 @@ def login(request):
         return Response({'error': 'Invalid Credentials'},
                         status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
-    return Response({'token': token.key},
+    return Response({'token': 'Token ' + token.key},
                     status=HTTP_200_OK)
+
+def register(request):
+    username = request.data.get("username")
+    password = request.data.get("password")

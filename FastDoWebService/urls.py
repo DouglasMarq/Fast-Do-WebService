@@ -19,7 +19,7 @@ from django.urls import path
 from rest_framework import routers
 from core.api.viewsets import AnotationViewSet
 from rest_framework.authtoken.views import obtain_auth_token
-from core.views import login
+from core.views import login, register
 
 router = routers.DefaultRouter()
 router.register(r'anotation', AnotationViewSet)
@@ -27,5 +27,6 @@ router.register(r'anotation', AnotationViewSet)
 urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('api/v1/api-auth-token', login),
+    path('api/v1/register', register),
     path('admin/', admin.site.urls),
 ]
